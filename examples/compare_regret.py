@@ -37,12 +37,18 @@ for name, make_agent in agents.items():
 # Plot
 fig, ax = plt.subplots(figsize=(9, 5))
 
+# Error bars at evenly spaced ticks, not every round (keeps it readable)
+error_ticks = np.linspace(0, T - 1, 10, dtype=int)
+
 colors = plt.cm.tab10.colors
 for i, (name, runs) in enumerate(results.items()):
     mean = runs.mean(axis=0)
     std = runs.std(axis=0)
     ax.plot(mean, label=name, color=colors[i], linewidth=2)
-    ax.fill_between(range(T), mean - std, mean + std, alpha=0.12, color=colors[i])
+    ax.errorbar(
+        error_ticks, mean[error_ticks], yerr=std[error_ticks],
+        fmt="none", color=colors[i], capsize=4, capthick=1.5, elinewidth=1.5,
+    )
 
 ax.set_xlabel("Round", fontsize=12)
 ax.set_ylabel("Cumulative Regret", fontsize=12)
