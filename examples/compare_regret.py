@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from bandits.environments import BernoulliBandit
-from bandits.algorithms import UCB, ThompsonSampling, KLUCB, BayesUCB, EpsilonGreedy, EXP3, MOSS
+from bandits.algorithms import UCB, ThompsonSampling, KLUCB, BayesUCB, EXP3, MOSS
 
 MEANS = [0.2, 0.5, 0.8]
 T = 500
@@ -14,7 +14,6 @@ agents = {
     "KL-UCB":        lambda: KLUCB(len(MEANS)),
     "Thompson":      lambda: ThompsonSampling(len(MEANS)),
     "BayesUCB":      lambda: BayesUCB(len(MEANS)),
-    "Eps-Greedy":    lambda: EpsilonGreedy(len(MEANS), epsilon=0.1, decay=True),
     "EXP3":          lambda: EXP3(len(MEANS), T=T),
     "MOSS":          lambda: MOSS(len(MEANS), T=T),
 }
