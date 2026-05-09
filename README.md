@@ -16,7 +16,6 @@ Cumulative regret over 500 rounds on a Bernoulli bandit (`means=[0.2, 0.5, 0.8]`
 | MOSS | 38.2 | Stochastic (minimax) |
 | UCB1 | 218.8 | Stochastic |
 | EXP3 | 323.9 | Adversarial |
-| Epsilon-Greedy | 752.8 | General |
 
 ## Installation
 
@@ -57,7 +56,6 @@ for t in range(500):
 | Bayes-UCB | `BayesUCB` | Kaufmann et al., 2012 |
 | MOSS | `MOSS` | Audibert & Bubeck, 2009 |
 | EXP3 | `EXP3` | Auer et al., 2002 |
-| Epsilon-Greedy | `EpsilonGreedy` | — |
 
 ## Environments
 
@@ -69,7 +67,7 @@ for t in range(500):
 
 ```
 bandits/
-├── algorithms/     # UCB, KL-UCB, Thompson Sampling, BayesUCB, MOSS, EXP3, Epsilon-Greedy
+├── algorithms/     # UCB, KL-UCB, Thompson Sampling, BayesUCB, MOSS, EXP3, EpsilonGreedy
 ├── environments/   # BernoulliBandit, ...
 └── problems/       # best arm identification, pure exploration, ...
 examples/
